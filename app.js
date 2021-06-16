@@ -4,4 +4,11 @@
 
 // sayHello("Piyush")
 
-console.log(module)
+//console.log(module)
+
+
+const log = require('./logger.js')
+
+//console.log(logger) ;
+
+log('message') ;
