@@ -1,14 +1,7 @@
-// function sayHello(name){
-//     console.log("Hello " + name) ;
-// }
 
-// sayHello("Piyush")
+const path = require('path') ;
 
-//console.log(module)
+var pathObj = path.parse(__filename) ;
 
-
-const log = require('./logger.js')
-
-//console.log(logger) ;
-
-log('message') ;
+console.log(__filename)
+console.log(pathObj)
