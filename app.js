@@ -1,12 +1,9 @@
+const Logger = require('./logger') ;
 
-const EventEmitter = require('events') ;
+const logger = new Logger() ;
 
-emitter = new EventEmitter() ;
-
-emitter.on("message logged" , (arg) => {
+logger.on("message logged" , (arg) => {
     console.log("Listener Called" , arg) ;
 })
 
-
-// Raise : logging message , {data}
-emitter.emit("message logged" , {id: 1 , url: 'https://wtever.io'}) ;
+logger.log('message') ;
