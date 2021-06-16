@@ -1,16 +1,20 @@
 const http = require('http') ;
 
-const server = http.createServer() ;
 
-//event listener
-//responds when event occurs according to type of event
-//this is very low level code
-//not used in general
-server.on('connection' , (socket) =>{
-    console.log("New Connection...")
-})
+//responds to event acc to request
+const server = http.createServer((req , res) =>{
 
-
+    // we try to avoid multiple if 
+    // we will use express instead of http
+    if(req.url == '/'){
+        res.write("hello world") ;
+        res.end() ;
+    }
+    if(req.url == '/wt'){
+        res.write("what") ;
+        res.end() ;
+    }
+}) ;
 
 //raises a event when something happens on port 3000
 server.listen(3000) ;
