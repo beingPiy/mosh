@@ -3,8 +3,10 @@ const EventEmitter = require('events') ;
 
 emitter = new EventEmitter() ;
 
-emitter.on("message logged" , function (){
-    console.log("Listener Called") ;
+emitter.on("message logged" , (arg) => {
+    console.log("Listener Called" , arg) ;
 })
 
-emitter.emit("message logged") ;
+
+// Raise : logging message , {data}
+emitter.emit("message logged" , {id: 1 , url: 'https://wtever.io'}) ;
