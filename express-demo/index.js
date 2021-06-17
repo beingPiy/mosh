@@ -6,8 +6,9 @@ app.get('/' , (req , res) => {
     res.send("Hello World!!!") ;
 })
 
-app.get('/api/course' , (req , res) => {
-    res.send([1,2,3]) ;
+app.get('/api/posts/:year/:moth' , (req , res) => {
+    res.send(req.params) ;
+    // res.send(req.query) ;
 })
 
 // Enviroment Variable PORT
