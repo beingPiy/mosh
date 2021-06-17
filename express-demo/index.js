@@ -4,6 +4,12 @@ const app = express() ;
 // used for parsing the json data within body
 app.use(express.json()) ;
 //for validation
+const logger = require('./logger')
+const authenticate = require('./authenticator')
+//middlewares
+app.use(logger)
+
+app.use(authenticate)
 
 const Joi = require('joi') ;
 
