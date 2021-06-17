@@ -2,15 +2,21 @@ const express = require('express') ;
 const { string } = require('joi');
 const app = express() ;
 // used for parsing the json data within body
-app.use(express.json()) ;
 //for validation
 const logger = require('./logger')
 const authenticate = require('./authenticator')
 //middlewares
 app.use(logger)
-
 app.use(authenticate)
 
+
+//built in middlewares
+app.use(express.json()) ;
+app.use(express.urlencoded()) ;
+app.use(express.static('public')) ;
+
+
+//for validation
 const Joi = require('joi') ;
 
 var courses = [
