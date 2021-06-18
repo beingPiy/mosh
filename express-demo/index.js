@@ -5,6 +5,7 @@ const app = express() ;
 //for validation
 const logger = require('./logger')
 const authenticate = require('./authenticator')
+const morgan = require('morgan')
 //middlewares
 app.use(logger)
 app.use(authenticate)
@@ -14,6 +15,14 @@ app.use(authenticate)
 app.use(express.json()) ;
 app.use(express.urlencoded()) ;
 app.use(express.static('public')) ;
+
+
+// third party middleware
+app.use(morgan('tiny'))
+
+// templating engine
+app.set('view engine' , 'pug') ;
+app.set('views' , './views')
 
 
 //for validation
@@ -26,7 +35,7 @@ var courses = [
     {id: 4 , name: "course4"}
 ]
 app.get('/' , (req , res) => {
-    res.send("Hello World!!!") ;
+    res.render('index' , {title: 'My express app' , message: 'Hello'}) ;
 })
 
 app.get('/api/courses/:id' , (req , res) => {
